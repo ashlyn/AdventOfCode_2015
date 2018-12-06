@@ -1,5 +1,20 @@
 import renderOutput from '../utils/render';
 
+const ribbonAmount = ({
+  length,
+  width,
+  height,
+}) => {
+  const sides = [
+    2 * (length + width),
+    2 * (length + height),
+    2 * (width + height),
+  ];
+  const shortestPerimeter = sides.sort((a, b) => a - b)[0];
+  const bowLength = length * width * height;
+  return shortestPerimeter + bowLength;
+};
+
 const wrappingPaperAmount = ({
   length,
   width,
@@ -18,16 +33,32 @@ const wrappingPaperAmount = ({
 const dimensions = (present) => {
   const values = present.split("x");
   return {
-    length: values[0],
-    width: values[1],
-    height: values[2],
+    length: parseInt(values[0], 10),
+    width: parseInt(values[1], 10),
+    height: parseInt(values[2], 10),
   };
 }
 
-const part1 = (input) => {
+const solve = (input) => {
   const presents = input.trim().split("\n").map(p => dimensions(p));
-  const wrappingPaperAmounts = presents.map(p => wrappingPaperAmount(p));
-  return wrappingPaperAmounts.reduce((total, amount) => total + amount, 0);
+  const materialAmounts = presents.map(p => {
+    return {
+      wrappingPaper: wrappingPaperAmount(p),
+      ribbon: ribbonAmount(p)
+    };
+  });
+  return materialAmounts.reduce((total, current) => {
+    return {
+      wrappingPaper: total.wrappingPaper + current.wrappingPaper,
+      ribbon: total.ribbon + current.ribbon,
+    };
+  }, {
+    wrappingPaper: 0,
+    ribbon: 0
+  });
 };
 
-export default (input) => renderOutput(part1(input), '');
+export default (input) => {
+  const solutions = solve(input);
+  renderOutput(solutions.wrappingPaper, solutions.ribbon);
+}

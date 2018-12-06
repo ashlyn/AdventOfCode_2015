@@ -9,4 +9,14 @@ const part1 = (input) => {
   return currentFloor;
 };
 
-export default (input) => renderOutput(part1(input), '');
+const part2 = (input) => {
+  var currentFloor = 0;
+  for (var i = 0; i < input.length; i++) {
+    if (input[i] === "(") currentFloor++;
+    else currentFloor--;
+
+    if (currentFloor === -1) return i + 1;
+  }
+};
+
+export default (input) => renderOutput(part1(input), part2(input));
