@@ -1,0 +1,31 @@
+{
+  "name": "adventofcode_2015",
+  "version": "1.0.0",
+  "description": "Solutions to Advent of Code 2015 challenges",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashlynlee13/AdventOfCode_2015.git"
+  },
+  "author": "Ashlyn Lee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashlynlee13/AdventOfCode_2015/issues"
+  },
+  "homepage": "https://github.com/ashlynlee13/AdventOfCode_2015#readme",
+  "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "acorn-jsx": "^5.0.1",
+    "babel-loader": "^8.0.4",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^5.9.0",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  }
+}
