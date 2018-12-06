@@ -8,6 +8,9 @@ import {
 import {
   default as Day3
 } from './solutions/day3';
+import {
+  default as Day4
+} from './solutions/day4';
 
 window.onload = () => {
   const readFile = (file, handler) => {
@@ -22,7 +25,8 @@ window.onload = () => {
   const handlers = [
     Day1,
     Day2,
-    Day3
+    Day3,
+    Day4
   ];
 
   for (var i = 0; i < handlers.length; i++) {
@@ -30,6 +34,4 @@ window.onload = () => {
     var button = document.getElementById(day);
     button.addEventListener('click', readFile(`./inputs/${day}.txt`, handlers[i]));
   }
-
-  console.log("HI");
 }
