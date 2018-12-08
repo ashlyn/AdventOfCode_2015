@@ -1,5 +1,8 @@
 import renderOutput from "../utils/render";
 
+const repeatedPairPattern = /[a-z]*([a-z][a-z])[a-z]*\1[a-z]*/;
+const repeatWithOneBetweenPattern = /[a-z]*([a-z])[a-z]\1[a-z]*/;
+
 const solve = (input) => {
   const words = input.trim().split("\n");
   const part1 = words.filter(isNiceForPart1).length;
@@ -17,7 +20,8 @@ const isNiceForPart1 = (word) => {
 };
 
 const isNiceForPart2 = (word) => {
-  return true;
+  return repeatedPairPattern.test(word) &&
+    repeatWithOneBetweenPattern.test(word);
 }
 
 const hasAtLeastThreeVowels = (word) => {
