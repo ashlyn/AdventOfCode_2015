@@ -14,6 +14,9 @@ import {
 import {
   default as Day5
 } from './solutions/day5';
+import {
+  default as Day6
+} from './solutions/day6';
 
 window.onload = () => {
   const readFile = (file, handler) => {
@@ -30,7 +33,8 @@ window.onload = () => {
     Day2,
     Day3,
     Day4,
-    Day5
+    Day5,
+    Day6,
   ];
 
   for (var i = 0; i < handlers.length; i++) {
