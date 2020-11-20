@@ -1,7 +1,7 @@
 import {
   default as Day1
 }
-from './solutions/day1';
+  from './solutions/day1';
 import {
   default as Day2
 } from './solutions/day2';
@@ -38,7 +38,7 @@ window.onload = () => {
   ];
 
   for (var i = 0; i < handlers.length; i++) {
-    const day = `day${i+1}`;
+    const day = `day${i + 1}`;
     var button = document.getElementById(day);
     button.addEventListener('click', readFile(`./inputs/${day}.txt`, handlers[i]));
   }

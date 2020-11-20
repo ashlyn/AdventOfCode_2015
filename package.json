@@ -4,8 +4,8 @@
   "description": "Solutions to Advent of Code 2015 challenges",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack-dev-server"
+    "build": "webpack",
+    "start": "webpack serve"
   },
   "repository": {
     "type": "git",
@@ -18,17 +18,18 @@
   },
   "homepage": "https://github.com/ashlynlee13/AdventOfCode_2015#readme",
   "devDependencies": {
-    "@babel/core": "^7.2.0",
-    "@babel/preset-env": "^7.2.0",
-    "acorn-jsx": "^5.0.1",
-    "babel-loader": "^8.0.4",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "acorn": "^6.4.2",
+    "acorn-jsx": "^5.3.1",
+    "babel-loader": "^8.2.1",
     "babel-preset-env": "^1.7.0",
-    "eslint": "^5.9.0",
-    "webpack": "^4.27.1",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10"
+    "eslint": "^5.16.0",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "md5": "^2.2.1"
+    "md5": "^2.3.0"
   }
 }

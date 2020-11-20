@@ -19,8 +19,8 @@ const solve = (input) => {
 
 const isNiceForPart1 = (word) => {
   return hasAtLeastThreeVowelsPattern.test(word) &&
-         repeatedLetterPattern.test(word) &&
-         !containsInvalidSubstringPattern.test(word);
+    repeatedLetterPattern.test(word) &&
+    !containsInvalidSubstringPattern.test(word);
 };
 
 const isNiceForPart2 = (word) => {

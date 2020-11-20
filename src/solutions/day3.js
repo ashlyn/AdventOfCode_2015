@@ -10,19 +10,23 @@ const directions = {
 const getNewPosition = (current, direction) => {
   switch (direction) {
     case directions.north:
-      return { ...current,
+      return {
+        ...current,
         y: current.y - 1
       };
     case directions.south:
-      return { ...current,
+      return {
+        ...current,
         y: current.y + 1
       };
     case directions.east:
-      return { ...current,
+      return {
+        ...current,
         x: current.x + 1
       };
     case directions.west:
-      return { ...current,
+      return {
+        ...current,
         x: current.x - 1
       };
     default:
