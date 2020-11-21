@@ -17,6 +17,15 @@ module.exports = {
           plugins: ['@babel/plugin-proposal-object-rest-spread']
         }
       }
+    },
+    {
+      test: /\.txt$/i,
+        use: 'raw-loader'
+    },
+    {
+      test: /\.(js)$/,
+      exclude: /node_modules/,
+      use: "eslint-loader"
     }]
   },
   devServer: {

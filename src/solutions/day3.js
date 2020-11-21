@@ -1,10 +1,11 @@
 import renderOutput from '../utils/render';
+import day3Input from '../../inputs/day3.txt';
 
 const directions = {
-  north: "^",
-  south: "v",
-  east: ">",
-  west: "<",
+  north: '^',
+  south: 'v',
+  east: '>',
+  west: '<',
 };
 
 const getNewPosition = (current, direction) => {
@@ -12,27 +13,27 @@ const getNewPosition = (current, direction) => {
     case directions.north:
       return {
         ...current,
-        y: current.y - 1
+        y: current.y - 1,
       };
     case directions.south:
       return {
         ...current,
-        y: current.y + 1
+        y: current.y + 1,
       };
     case directions.east:
       return {
         ...current,
-        x: current.x + 1
+        x: current.x + 1,
       };
     case directions.west:
       return {
         ...current,
-        x: current.x - 1
+        x: current.x - 1,
       };
     default:
       return current;
   }
-}
+};
 
 const keyForHouse = (house) => `${house.x}-${house.y}`;
 
@@ -42,21 +43,21 @@ const solve = (input) => {
 
   var currentSoloSanta = {
     x: 0,
-    y: 0
+    y: 0,
   };
   var currentRealSanta = {
     x: 0,
-    y: 0
+    y: 0,
   };
   var currentRoboSanta = {
     x: 0,
-    y: 0
+    y: 0,
   };
 
   part1Houses.add(keyForHouse(currentSoloSanta));
   part2Houses.add(keyForHouse(currentRealSanta));
   for (var i = 0; i < input.length; i++) {
-    var part2HouseKey = "";
+    var part2HouseKey = '';
     if (i % 2) {
       currentRealSanta = getNewPosition(currentRealSanta, input[i]);
       part2HouseKey = keyForHouse(currentRealSanta);
@@ -74,7 +75,7 @@ const solve = (input) => {
   };
 };
 
-export default (input) => {
-  const solutions = solve(input.trim());
+export default () => {
+  const solutions = solve(day3Input.trim());
   renderOutput(solutions.part1, solutions.part2);
-}
+};

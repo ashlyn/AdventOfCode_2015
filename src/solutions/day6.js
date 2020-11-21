@@ -1,4 +1,5 @@
-import renderOutput from "../utils/render";
+import renderOutput from '../utils/render';
+import day6Input from '../../inputs/day6.txt';
 
 const instructionPattern = /(turn on|turn off|toggle) (\d+),(\d+) through (\d+),(\d+)/;
 
@@ -19,11 +20,12 @@ const parseInstruction = (line) => {
 };
 
 const part1 = (input) => {
-  let lights = [...Array(1000)].map(e => Array(1000).fill(false));
-  input.trim()
-    .split("\n")
+  let lights = [...Array(1000)].map(() => Array(1000).fill(false));
+  input
+    .trim()
+    .split('\n')
     .map(parseInstruction)
-    .forEach(instruction => {
+    .forEach((instruction) => {
       if (!instruction) return;
       for (var x = instruction.startX; x <= instruction.stopX; x++) {
         for (var y = instruction.startY; y <= instruction.stopY; y++) {
@@ -32,18 +34,22 @@ const part1 = (input) => {
       }
     });
   return lights.reduce((sum, row) => {
-    return sum + row.reduce((rowSum, light) => {
-      return rowSum + light;
-    }, 0);
+    return (
+      sum +
+      row.reduce((rowSum, light) => {
+        return rowSum + light;
+      }, 0)
+    );
   }, 0);
 };
 
 const part2 = (input) => {
-  let lights = [...Array(1000)].map(e => Array(1000).fill(0));
-  input.trim()
-    .split("\n")
+  let lights = [...Array(1000)].map(() => Array(1000).fill(0));
+  input
+    .trim()
+    .split('\n')
     .map(parseInstruction)
-    .forEach(instruction => {
+    .forEach((instruction) => {
       if (!instruction) return;
       for (var x = instruction.startX; x <= instruction.stopX; x++) {
         for (var y = instruction.startY; y <= instruction.stopY; y++) {
@@ -52,9 +58,12 @@ const part2 = (input) => {
       }
     });
   return lights.reduce((sum, row) => {
-    return sum + row.reduce((rowSum, light) => {
-      return rowSum + light;
-    }, 0);
+    return (
+      sum +
+      row.reduce((rowSum, light) => {
+        return rowSum + light;
+      }, 0)
+    );
   }, 0);
 };
 
@@ -84,6 +93,6 @@ const part2NewLightStatus = (action, light) => {
   }
 };
 
-export default (input) => {
-  renderOutput(part1(input), part2(input));
+export default () => {
+  renderOutput(part1(day6Input), part2(day6Input));
 };
